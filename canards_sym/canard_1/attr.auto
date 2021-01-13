@@ -1,0 +1,60 @@
+
+#===================
+# AUTO LuoSlow_f/attr
+#==================-
+
+clean()
+
+pgm = "attr"
+print "\n canard 1 is started"
+
+r = run(e=pgm,c=pgm,ICP=['va0','da0','fa0','Ta'],NBC=7,UZR={'va0': 20})
+
+r1 = run(r('UZ1'),ICP=['xa0','da0','fa0','Ta'],DS='-',UZR={'xa0': 0.066})
+
+r2 = run(r1('UZ1'),ICP=['Ta','va1','va0','fa0','da0'],DS='-',UZR={'va1':-38})
+
+r3 = run(r2('UZ1'),ICP=['xa0','Ta','da0','fa0','fa1','xa1','da1'],DS='-',NMX=6000,UZR = {'da1': 0.251491})
+#sv(r3,pgm)
+
+r4 = run(r3('UZ1'),e='canard',c='canard',ICP=['gCa','fa0','fa1','xa0','xa1','Ta','va1','da1'],NMX=1600,UZR={'gCa': 0.0998})
+#sv(r4,pgm)
+
+s = run(r4('UZ1'),e='canard',c='canard',ICP=['shiftd','fa0','fa1','xa0','xa1','Ta','va1','da1'],NMX=9000,UZR={'shiftd': -2.33})
+s1 = run(s('UZ1'),ICP=['shiftf','fa0','fa1','xa0','xa1','Ta','va1','da1'],DS='-',NMX=9000,UZR={'shiftf': 2.33},ILP=1)
+#sv(s1,pgm)
+
+r4 = run(s1('UZ1'),e='canard',c='canard',ICP=['gCa','fa0','fa1','xa0','xa1','Ta','va1','da1'],NMX=1600,UZR={'gCa': 0.112})
+sv(r4,pgm)
+
+s2 = run(r4('UZ1'),e='canard',c='canard',ICP=['shiftd','fa0','fa1','xa0','xa1','Ta','va1'],NMX=9000,UZR={'shiftd': -2.08})
+s3 = run(s2('UZ1'),ICP=['shiftf','fa0','fa1','xa0','xa1','Ta','va1'],DS='-',NMX=9000,UZR={'shiftf': 2.08},ILP=1)
+ap(s3,pgm)
+
+s4 = run(s3('UZ1'),e='canard',c='canard',ICP=['shiftd','fa0','fa1','xa0','xa1','Ta','va1'],NMX=9000,UZR={'shiftd': -1.83})
+s5 = run(s4('UZ1'),ICP=['shiftf','fa0','fa1','xa0','xa1','Ta','va1'],DS='-',NMX=9000,UZR={'shiftf': 1.83},ILP=1)
+ap(s5,pgm)
+
+rl(pgm)
+
+print "\n***Clean the directory***"
+cl()
+
+plot('attr',type="solution",use_labels=0,label='all',azimuth=70,elevation=20,
+       minx=0,maxx=1.0,miny=0,maxy=0.16,minz=-20,maxz=-10,
+       color_list="blue",
+       solution_x=["f"],solution_y=["x"], solution_z=["v"],
+       xlabel="$f$",ylabel="$x$",zlabel="$V$", alpha=0.3)
+
+plot('attr',type="bifurcation",use_labels=0,label='all',
+       color_list="blue",
+       bifurcation_x=["fa1"],bifurcation_y=["xa1"])
+wait()
+
+rl(pgm)
+bd = loadbd(pgm)
+bd(1).writeRawFilename('canard_1_2.33')
+bd(2).writeRawFilename('canard_1_2.08')
+bd(3).writeRawFilename('canard_1_1.83')
+
+delete(pgm)

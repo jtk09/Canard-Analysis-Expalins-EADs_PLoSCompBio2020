@@ -1,0 +1,11 @@
+unames = {1:'v', 2:'d', 3:'f', 4:'x'}
+parnames = {1: 'C', 2: 'Ko', 3: 'shiftd',
+ 4: 'shiftf', 5: 'gKw', 6: 'gCa', 7: 'VCa', 8: 'va0', 9: 'da0', 10: 'fa0', 11: 'Ta', 12: 'xa0', 13: 'va1', 14: 'da1', 15: 'fa1', 16: 'xa1'}
+NDIM=   4, IPS =   4, IRS =   0, ILP =   0
+ICP =  ['Ta', 'xa0','fa0','da0','va0']
+NTST= 500, NCOL=   4, IAD =   3, ISP =   2, ISW = 1, IPLT= 0, NBC= 8, NINT= 0
+NMX=  3000, NPR= 0, MXBF=   0, IID =   2, ITMX= 8, ITNW= 7, NWTN= 3, JAC= 0
+EPSL= 1e-09, EPSU = 1e-09, EPSS = 1e-07
+DS  = 0.1, DSMIN= 1e-09, DSMAX=  5., IADS=   1
+NPAR = 16, THL =  {}, THU =  {}
+UZR =  {'xa0': -1.2}, STOP = ['UZ1']
