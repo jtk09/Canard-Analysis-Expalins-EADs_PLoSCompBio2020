@@ -1,0 +1,30 @@
+# AUTO constants file from which most calculations begin.
+
+unames = {1: "V", 2: "d", 3: "f", 4: "x"}
+parnames = {1: "C", 2: "Ko", 3: "shiftd", 4: "shiftf", 5: "gKw", 6: "gCa", 7: "VCa"}
+NDIM = 4,
+ILP = 1,  
+ICP = [3],
+ISP = 2,
+IADS = 1,
+IAD = 3,
+
+NCOL = 4,
+NTST = 500,
+
+NPR = 1000,
+NMX = 1200,
+ITMX = 8,
+ITNW = 7, #7
+NWTN = 3, #5
+JAC = 1,
+
+EPSL = 1e-9,
+EPSU = 1e-9,
+EPSS = 1e-7,
+
+DS = 0.01,
+DSMIN = 0.000001,
+DSMAX = 0.1,
+
+THL = {11:0.0}
