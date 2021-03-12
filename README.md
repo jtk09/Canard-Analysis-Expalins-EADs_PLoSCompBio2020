@@ -1,4 +1,4 @@
-# Canard-Analysis-Expalins-EADs_PLoSCompBio2020
+# Canard-Analysis-Explains-EADs_PLoSCompBio2020
 
 This repository contains AUTO (C and Python) scripts and some printouts for the analysis presented in the peer-reviewed scholarly journal article: "Canard analysis reveals why a large Ca2+ window current promotes early afterdepolarizations in cardiac myocytes"
 
